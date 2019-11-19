@@ -24,7 +24,7 @@ public class PersonBuilderTest {
 		optionsForStudent.putAll(optionsForPerson);
 		optionsForStudent.put("university", new University("LMU", new Address("München", "Marienplatz")));
 		Assert.assertNull(personBuilder.create(optionsForStudent));
-		
+
 		personBuilder.addBuilder(Set.of("lastname", "firstname", "university"), (opt) -> {
 			Student s = new Student((String) opt.get("lastname"), (String) opt.get("firstname"));
 			s.setUniversity((University) opt.get("university"));
@@ -32,5 +32,21 @@ public class PersonBuilderTest {
 		});
 		Assert.assertNotNull(personBuilder.create(optionsForStudent));
 
+		var message = "Created inside PersonBuilderTest";
+		Set<String> freelancerSet = Set.of("lastname", "firstname", "customer");
+		personBuilder.addBuilder(freelancerSet, (opt) -> {
+			System.out.println(message);
+			Freelancer f = new Freelancer((String) opt.get("lastname"), (String) opt.get("firstname"));
+			f.setCustomer((String) opt.get("customer"));
+			return f;
+		});
+		Map<String, Object> optionsForFreelancer = new HashMap<>();
+		optionsForFreelancer.put("lastname", "Meier");
+		optionsForFreelancer.put("firstname", "Hans");
+		optionsForFreelancer.put("customer", "integrata");
+		Assert.assertNotNull(personBuilder.create(optionsForFreelancer));
+		
+		Person p = personBuilder.create(optionsForFreelancer);
+		System.out.println(p.toString());
 	}
 }
