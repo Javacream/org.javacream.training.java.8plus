@@ -1,6 +1,6 @@
 package org.javacream.training.java._8plus.people;
 
-public class Person {
+public class Person implements AddressProvider{
 
 	private String lastname;
 	private String firstname;

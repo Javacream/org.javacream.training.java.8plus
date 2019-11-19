@@ -6,12 +6,10 @@ public class Worker extends Person {
 
 	public Worker(String lastname, String firstname, Address address) {
 		super(lastname, firstname, address);
-		// TODO Auto-generated constructor stub
 	}
 
 	public Worker(String lastname, String firstname) {
 		super(lastname, firstname);
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getCompany() {
@@ -20,5 +18,9 @@ public class Worker extends Person {
 
 	public void setCompany(String company) {
 		this.company = company;
+	}
+	
+	public String getStreet() {
+		return "Auf Arbeit!";
 	}
 }

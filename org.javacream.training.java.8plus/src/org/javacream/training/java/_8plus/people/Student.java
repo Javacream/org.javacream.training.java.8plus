@@ -2,23 +2,21 @@ package org.javacream.training.java._8plus.people;
 
 public class Student extends Person {
 
-	private String university;
+	private University university;
 
-	public String getUniversity() {
+	public University getUniversity() {
 		return university;
 	}
 
-	public void setUniversity(String university) {
+	public void setUniversity(University university) {
 		this.university = university;
 	}
 
 	public Student(String lastname, String firstname, Address address) {
 		super(lastname, firstname, address);
-		// TODO Auto-generated constructor stub
 	}
 
 	public Student(String lastname, String firstname) {
 		super(lastname, firstname);
-		// TODO Auto-generated constructor stub
 	}
 }
