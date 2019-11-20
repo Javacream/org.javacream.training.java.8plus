@@ -16,22 +16,22 @@ public class PersonBuilderTest {
 		Map<String, Object> optionsForPerson = new HashMap<>();
 		optionsForPerson.put("lastname", "Sawitzki");
 		optionsForPerson.put("firstname", "Rainer");
-		Assert.assertNull(personBuilder.create(optionsForPerson));
+		Assert.assertTrue(personBuilder.create(optionsForPerson).isEmpty());
 		var personSet = Set.of("lastname", "firstname");
 		personBuilder.addBuilder(personSet,
 				(opt) -> new Person((String) opt.get("lastname"), (String) opt.get("firstname")));
-		Assert.assertNotNull(personBuilder.create(optionsForPerson));
+		Assert.assertTrue(personBuilder.create(optionsForPerson).isPresent());
 		Map<String, Object> optionsForStudent = new HashMap<>();
 		optionsForStudent.putAll(optionsForPerson);
 		optionsForStudent.put("university", new University("LMU", new Address("München", "Marienplatz")));
-		Assert.assertNull(personBuilder.create(optionsForStudent));
+		Assert.assertTrue(personBuilder.create(optionsForStudent).isEmpty());
 
 		personBuilder.addBuilder(Set.of("lastname", "firstname", "university"), (opt) -> {
 			Student s = new Student((String) opt.get("lastname"), (String) opt.get("firstname"));
 			s.setUniversity((University) opt.get("university"));
 			return s;
 		});
-		Assert.assertNotNull(personBuilder.create(optionsForStudent));
+		Assert.assertTrue(personBuilder.create(optionsForStudent).isPresent());
 
 		var message = "Created inside PersonBuilderTest";
 		Set<String> freelancerSet = Set.of("lastname", "firstname", "customer");
@@ -45,7 +45,7 @@ public class PersonBuilderTest {
 		optionsForFreelancer.put("lastname", "Meier");
 		optionsForFreelancer.put("firstname", "Hans");
 		optionsForFreelancer.put("customer", "integrata");
-		Assert.assertNotNull(personBuilder.create(optionsForFreelancer));
+		Assert.assertTrue(personBuilder.create(optionsForFreelancer).isPresent());
 		
 		Optional<Person> p = personBuilder.create(optionsForFreelancer);
 		System.out.println(p.toString());

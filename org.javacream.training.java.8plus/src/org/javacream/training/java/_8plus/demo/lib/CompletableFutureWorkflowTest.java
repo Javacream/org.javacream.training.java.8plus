@@ -10,8 +10,25 @@ public class CompletableFutureWorkflowTest {
 	public void doWorkflow() {
 		CompletableFuture<Double> f1 = new CompletableFuture<>();
 		CompletableFuture<Double> f2 = new CompletableFuture<>();
-		CompletableFuture<Double> f3 = f1.thenApplyAsync(x -> x * x);
-		CompletableFuture<Double> f4 = f2.thenApplyAsync(x -> x * x);
+		CompletableFuture<Double> f3 = f1.thenApplyAsync(x -> 
+		{
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return x * x;
+		});
+		CompletableFuture<Double> f4 = f2.thenApplyAsync(x -> 		{
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return x * x;
+		});
 		CompletableFuture<Double> f5 = f3.thenCombine(f4, (x, y) -> x + y);
 		CompletableFuture<Double> f6 = f5.thenApply(x -> Math.sqrt(x));
 		f1.complete(3.0);
