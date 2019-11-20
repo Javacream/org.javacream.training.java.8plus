@@ -1,20 +1,26 @@
 package org.javacream.training.java._8plus.demo.streaming;
 
+import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.junit.Test;
 
 public class StreamingTest {
 
-	@Test public void testList() {
+	@Test public void testList() throws IOException {
 		List<String> names = List.of("Hugo", "Emil", "Fritz");
 		classicForLoop(names);
 		forEachForLoop(names);
 		modern(names);
-		
+	}
+	@Test public void testData() throws IOException {
+		List<String> names = List.of("Hugo", "Emil", "Fritz", "Eduard", "Egon");
+		@SuppressWarnings("unused")
+		List<Integer> result = names.stream().filter(element -> element.startsWith("E")).map(element -> element.length()).collect(Collectors.toList());
 	}
 
 	private void modern(Collection<String> names) {
