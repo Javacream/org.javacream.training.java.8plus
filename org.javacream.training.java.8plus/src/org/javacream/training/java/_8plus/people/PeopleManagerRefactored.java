@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -46,9 +47,9 @@ public class PeopleManagerRefactored {
 	}
 	
 	public Person createPerson(Map<String, Object> options) {
-		Person p =personBuilder.create(options);
-		people.add(p);
-		return p;
+		Optional<Person> createdPerson = personBuilder.create(options);
+		createdPerson.ifPresent(p -> people.add(p));
+		return createdPerson.orElseThrow(() -> new IllegalArgumentException("wrong optioons: " + options));
 	}
 	
 	public List<Person> findByLastname(String lastname){

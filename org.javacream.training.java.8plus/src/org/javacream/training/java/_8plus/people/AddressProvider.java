@@ -2,6 +2,7 @@ package org.javacream.training.java._8plus.people;
 
 public interface AddressProvider {
 
+	Address DEFAULT = new Address("unknown", "unknown");
 	Address getAddress();
 	public default String getCity() {
 		return getAddress().getCity();

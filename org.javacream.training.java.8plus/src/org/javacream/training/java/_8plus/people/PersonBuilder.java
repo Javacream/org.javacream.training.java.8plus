@@ -2,6 +2,7 @@ package org.javacream.training.java._8plus.people;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
 
@@ -13,13 +14,13 @@ public class PersonBuilder {
 		builders.put(attributes, builder);
 	}
 	
-	public Person create(Map<String, Object> options) {
+	public Optional<Person> create(Map<String, Object> options) {
 		var builder = builders.get(options.keySet());
 		if (builder !=  null) {
-			return builder.apply(options);
+			return Optional.of(builder.apply(options));
 		}
 		else {
-			return null;
+			return Optional.empty();
 		}
 	}
 }

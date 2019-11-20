@@ -1,10 +1,12 @@
 package org.javacream.training.java._8plus.people;
 
+import java.util.Optional;
+
 public class Person implements AddressProvider{
 
 	private String lastname;
 	private String firstname;
-	private Address address;
+	private Optional<Address> address;
 	
 	public String info() {
 		return "a person...";
@@ -62,7 +64,7 @@ public class Person implements AddressProvider{
 		super();
 		this.lastname = lastname;
 		this.firstname = firstname;
-		this.address = address;
+		this.address = Optional.of(address);
 	}
 
 	public String getLastname() {
@@ -74,11 +76,11 @@ public class Person implements AddressProvider{
 	}
 
 	public Address getAddress() {
-		return address;
+		return address.orElse(DEFAULT);
 	}
 
 	public void setAddress(Address address) {
-		this.address = address;
+		this.address = Optional.of(address);
 	}
 
 	public String getFirstname() {
