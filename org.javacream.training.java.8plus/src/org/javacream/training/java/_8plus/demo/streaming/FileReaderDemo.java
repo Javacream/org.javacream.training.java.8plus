@@ -9,8 +9,9 @@ import org.junit.Test;
 
 public class FileReaderDemo {
 
-	@Test public void testReadFile() throws IOException {
-		final String fileName = "data.txt";
+	//@Test  
+	public void testReadFile() throws IOException {
+		final String fileName = "c:/_training/data.txt"; //Bitte Datei an dieser Stelle ablegen...
 		Stream<String> stream = Files.lines(Path.of(fileName));
 		
 	}
