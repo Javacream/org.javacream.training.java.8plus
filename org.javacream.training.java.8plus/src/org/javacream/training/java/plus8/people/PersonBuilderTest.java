@@ -19,6 +19,7 @@ public class PersonBuilderTest {
 		Set<String> personSet = Set.of();
 		Set<String> workerSet = Set.of("company");
 		Set<String> studentSet = Set.of("university");
+		Set<String> freelancerSet = Set.of("salary");
 		personBuilder.add(personSet, new SimplePersonCreator());
 
 		personBuilder.add(workerSet, new PersonCreator() {
@@ -34,6 +35,12 @@ public class PersonBuilderTest {
 			University university = (University) options.get("university");
 			return new Student(lastname, firstname, university);
 		});
+		personBuilder.add(freelancerSet, (lastname, firstname, options) -> {
+			Freelancer freelancer = new Freelancer(lastname, firstname);
+			freelancer.setSalary((double) options.get("salary"));
+			return freelancer;
+			
+		});
 
 	}
 
@@ -45,6 +52,12 @@ public class PersonBuilderTest {
 		Map<String, Object> workerMap = Map.of("company", new Company("Integrata"));
 		Person worker = personBuilder.build("Schufter", "Hans", workerMap);
 		Assert.assertTrue(worker.getClass().equals(Worker.class));
+
+	
+		Map<String, Object> freelancerMap = Map.of("salary", 9.99);
+		Person freelancer = personBuilder.build("Eg", "Al", freelancerMap);
+		Assert.assertTrue(freelancer.getClass().equals(Freelancer.class));
+
 	}
 
 	private static class SimplePersonCreator implements PersonCreator {
