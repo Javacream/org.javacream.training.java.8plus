@@ -8,6 +8,7 @@ public class PublicTopLevel {
 	private static String staticTopLevelAttribute;
 	
 	
+	@SuppressWarnings("unused")
 	public void doSomething() {
 		//Vor Java 8: final
 		String methodVariable = "method";
