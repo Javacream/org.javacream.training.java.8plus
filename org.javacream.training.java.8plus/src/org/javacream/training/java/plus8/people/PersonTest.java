@@ -1,4 +1,4 @@
-package org.javacream.training.java.plus8;
+package org.javacream.training.java.plus8.people;
 
 import org.junit.Assert;
 import org.junit.Test;

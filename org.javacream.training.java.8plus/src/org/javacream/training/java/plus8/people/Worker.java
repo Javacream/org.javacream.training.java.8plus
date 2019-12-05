@@ -1,4 +1,4 @@
-package org.javacream.training.java.plus8;
+package org.javacream.training.java.plus8.people;
 
 public class Worker extends Person {
 
