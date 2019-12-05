@@ -2,18 +2,18 @@ package org.javacream.training.java.plus8;
 
 public class Worker extends Person {
 
-	private String company;
+	private Company company;
 
-	public Worker(String lastname, String firstname, String company) {
+	public Worker(String lastname, String firstname, Company company) {
 		super(lastname, firstname);
 		this.company = company;
 	}
 
-	public String getCompany() {
+	public Company getCompany() {
 		return company;
 	}
 
-	public void setCompany(String company) {
+	public void setCompany(Company company) {
 		this.company = company;
 	}
 }
