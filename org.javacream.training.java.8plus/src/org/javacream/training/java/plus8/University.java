@@ -1,6 +1,6 @@
 package org.javacream.training.java.plus8;
 
-public class University implements AddressProvider{
+public class University implements AddressProvider, Info{
 
 	private String name;
 	private Address address;
@@ -17,4 +17,14 @@ public class University implements AddressProvider{
 		super();
 		this.name = name;
 	}
+
+	@Override
+	public String getCity() {
+		return AddressProvider.super.getCity();
+	}
+	@Override
+	public String getStreet() {
+		return Info.super.getStreet();
+	}
+
 }
