@@ -12,6 +12,7 @@ import org.junit.Test;
 public class ClassesDemoTest {
 
 	
+	@SuppressWarnings("unused")
 	@Test public void testClasses() {
 		PublicTopLevel publicTopLevel = new PublicTopLevel();
 		AnotherTopLevel anotherTopLevelClass = new AnotherTopLevel();

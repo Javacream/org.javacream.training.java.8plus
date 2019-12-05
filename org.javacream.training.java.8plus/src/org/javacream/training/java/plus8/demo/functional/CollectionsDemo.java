@@ -10,6 +10,7 @@ import org.junit.Test;
 
 public class CollectionsDemo {
 
+	@SuppressWarnings("unused")
 	@Test public void testCollections() {
 		var names = List.of("Emil", "Hugo", "Fridolin", "Hans");
 		var namesSet = Set.of("Emil", "Hugo", "Fridolin", "Hans");

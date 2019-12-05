@@ -2,8 +2,6 @@ package org.javacream.training.java.plus8.people;
 
 import java.util.Map;
 
-import org.javacream.training.java.plus8.people.PersonBuilder.PersonCreator;
-
 public class PersonCreateFunctions {
 	public static Worker worker(String lastname, String firstname, Map<String, Object> options) {
 		Company company = (Company) options.get("company");
