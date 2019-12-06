@@ -1,18 +1,21 @@
 package org.javacream.training.java.plus8.people;
 
-public class Person implements AddressProvider {
+import java.util.Optional;
 
+public class Person implements AddressProvider {
+	private static final Address DEFAULT_FOR_PERSON = new Address("Irgend", "Wo");
 	private static final String PREFIX = "F";
 	private String lastname;
 	private String firstname;
-	private Address address;
+	private Optional<Address> address;
 	
 	@Override
 	public Address getAddress() {
-		return address;
+		//return address.get();//TOTAL FALSCH!
+		return address.orElse(DEFAULT_FOR_PERSON);
 	}
 	public void setAddress(Address address) {
-		this.address = address;
+		this.address = Optional.of(address);
 	}
 	public Person(String lastname, String firstname) {
 		super();
