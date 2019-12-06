@@ -2,6 +2,7 @@ package org.javacream.training.java.plus8.people;
 
 public class Person implements AddressProvider {
 
+	private static final String PREFIX = "F";
 	private String lastname;
 	private String firstname;
 	private Address address;
@@ -62,5 +63,9 @@ public class Person implements AddressProvider {
 	}
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
+	}
+	
+	public static boolean checkNameBeginsWith(String name) {
+		return name.startsWith(PREFIX);
 	}
 }
