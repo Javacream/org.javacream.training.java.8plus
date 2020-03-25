@@ -20,8 +20,7 @@
 
 ## Beispiele und Übungen
 
-* Ausgangsbasis: Branch initial
-* Fortlaufende Entwicklung: Branch master
+* Branch telekom_26.3.2020
 * Zum gemeinsamen Arbeiten kann jeder Teilnehmer ausgehend von initial einen Branch mit seinem Namen/Kennung anlegen und ausschließlich auf diesem Arbeiten
  * Credentials werden im Seminar mitgeteilt
  * Es wird zur Vereinfachung nur mit einem einzigen USer-Account gearbeitet
