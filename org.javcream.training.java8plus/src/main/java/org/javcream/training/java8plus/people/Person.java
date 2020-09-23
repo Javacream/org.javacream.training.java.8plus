@@ -65,6 +65,6 @@ public class Person implements AddressProvider, Addressable{
 	}
 	@Override
 	public String getCity() {
-		return Addressable.super.getCity();
+		return AddressProvider.super.getStreet() + Addressable.super.getCity();
 	}
 }
