@@ -16,5 +16,6 @@
   * Mittagspause 45’ (12:15-13:00)
   * 2 Kaffeepausen je 15'
   * Zeitplan 
-    * Mi.: - Fr.:   9:00 - 16:15
+    * Mi.:         9:00 - 16:00
+    * Do. - Fr.:   8:30 - 16:00
     
