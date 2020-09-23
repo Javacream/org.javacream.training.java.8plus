@@ -30,7 +30,7 @@ public class TopLevel implements Simple {
 		
 
 	}
-	class InnerClassLevel implements Simple {
+	public class InnerClassLevel implements Simple {
 		@Override
 		public void doSomething() {
 			System.out.println(TopLevel.this.attr);
