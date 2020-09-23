@@ -26,6 +26,7 @@ public class TopLevel implements Simple {
 		Simple s7 = () -> {
 			System.out.println(variable);
 		};
+
 		
 
 	}
