@@ -15,4 +15,8 @@ public interface AddressProvider {
 		Address result = new Address(a.getCity().toUpperCase(), a.getStreet().toUpperCase());
 		return result;
 	}
+	
+	default boolean validate() {
+		return true;
+	}
 }

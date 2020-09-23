@@ -1,6 +1,6 @@
 package org.javcream.training.java8plus.people;
 
-public class Person implements AddressProvider{
+public class Person implements AddressProvider, Addressable{
 
 	private String lastname;
 	private String firstname;
@@ -62,5 +62,9 @@ public class Person implements AddressProvider{
 	}
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
+	}
+	@Override
+	public String getCity() {
+		return Addressable.super.getCity();
 	}
 }
