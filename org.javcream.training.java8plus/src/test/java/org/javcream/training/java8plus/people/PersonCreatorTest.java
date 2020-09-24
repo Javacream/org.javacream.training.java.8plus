@@ -27,11 +27,20 @@ public class PersonCreatorTest {
 		personCreator.create("lastname", "firstname", anywhere, options);
 	}
 	@Test
-	public void afterAddingStudentBuilderAtudentIsCreated() {
+	public void afterAddingStudentBuilderAStudentIsCreated() {
 		Set<String> studentOptions = new HashSet<>();
 		studentOptions.add("university");
 		personCreator.addBuilder(studentOptions, (lastname, firstname, address, options) -> 
 			new Student(lastname, firstname, address, options.get("university").toString()));
+		HashMap<String, Object> options = new HashMap<>();
+		options.put("university", "LMU");
+		personCreator.create("lastname", "firstname", anywhere, options);
+	}
+	@Test
+	public void afterAddingStudentBuilderAStudentIsCreatedWithMethodReference() {
+		Set<String> studentOptions = new HashSet<>();
+		studentOptions.add("university");
+		personCreator.addBuilder(studentOptions, PersonBuilderAlgorithms::createStudent);
 		HashMap<String, Object> options = new HashMap<>();
 		options.put("university", "LMU");
 		personCreator.create("lastname", "firstname", anywhere, options);

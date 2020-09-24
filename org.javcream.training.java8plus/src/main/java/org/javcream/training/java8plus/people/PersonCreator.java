@@ -12,8 +12,9 @@ public class PersonCreator {
 	public PersonCreator() {
 		builders = new HashMap<Set<String>, PersonCreator.PersonBuilder>();
 		Set<String> personKeySet = new HashSet<>();
-		builders.put(personKeySet, (lastname, firstname, address, options) -> 
-			new Person(lastname, firstname, address));
+//		builders.put(personKeySet, (lastname, firstname, address, options) -> 
+//			new Person(lastname, firstname, address));
+		builders.put(personKeySet, PersonBuilderAlgorithms::createPerson);
 	}
 
 	private Map<Set<String>, PersonBuilder> builders;
