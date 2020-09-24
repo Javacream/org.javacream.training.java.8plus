@@ -3,38 +3,51 @@ package org.javcream.training.java8plus.demo.lambdas;
 import org.junit.Test;
 
 public class LambdaTest {
-	interface Simple{
+	interface Simple {
 		void demo();
 	}
-	interface WithParams{
+
+	interface WithParams {
 		void demo(String s, double d);
 	}
 
-	interface WithParamsAndReturn{
+	interface WithParamsAndReturn {
 		int demo(String s);
 	}
 
-	interface WithReturn{
+	interface WithReturn {
 		int demo();
 	}
-	@Test void simpleLambda(){
-		Simple s = () -> {};
+
+	@Test
+	public void simpleLambda() {
+		Simple s = () -> {
+		};
 	}
 
+	@Test
+	public void withParamsLambda() {
+		WithParams l = (String s, double d) -> {
+			System.out.println(s);
+		};
+	}
 
-	@Test void withParamsLambda(){
-		WithParams l = (String s, double d) -> {System.out.println(s);};
+	@Test
+	public void withReturnLambda() {
+		WithReturn l = () -> {
+			return 42;
+		};
 	}
-	
-	@Test void withReturnLambda(){
-		WithReturn l = () -> {return 42;};
+
+	@Test
+	public void withParamsShortLambda() {
+		WithParams l = (s, d) -> {
+			System.out.println(d);
+		};
 	}
-	
-	@Test void withParamsShortLambda(){
-		WithParams l = (s, d) -> {System.out.println(d);};
-	}
-	
-	@Test void withParamsShort2Lambda(){
+
+	@Test
+	public void withParamsShort2Lambda() {
 		WithParamsAndReturn l = s -> s.length();
 	}
 }
