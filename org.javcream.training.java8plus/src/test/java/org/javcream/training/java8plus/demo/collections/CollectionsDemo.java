@@ -4,6 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -40,10 +41,12 @@ public class CollectionsDemo {
 
 	}
 	
-	@Test public void testCollection() {
+	//@Test 
+	public void testCollection() {
 		System.out.println(handleStream(names.stream()));
 	}
-	@Test public void testFile() throws Exception{
+	//@Test 
+	public void testFile() throws Exception{
 		System.out.println(handleStream(Files.lines(Paths.get("names.txt"))));
 	}
 
@@ -51,4 +54,5 @@ public class CollectionsDemo {
 		return data.filter(name -> name.startsWith("E")).filter(name -> name.length() > 4)
 		.collect(Collectors.toList());
 	}
+	
 }
