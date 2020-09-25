@@ -15,7 +15,7 @@ public class Person implements AddressProvider, Addressable{
 //			return Address.NullAddress
 //		}
 		
-		return address.map(a -> a).orElse(Address.NullAddress);
+		return address.orElse(Address.NullAddress);
 	}
 	public void setAddress(Optional<Address> address) {
 		this.address = address;
