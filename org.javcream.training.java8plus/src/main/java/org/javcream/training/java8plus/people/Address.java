@@ -2,6 +2,7 @@ package org.javcream.training.java8plus.people;
 
 public class Address {
 
+	public static final Address NullAddress = new Address("unknwon", "unknwon");
 	private String city;
 	private String street;
 	public String getCity() {

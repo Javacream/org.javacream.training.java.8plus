@@ -1,22 +1,31 @@
 package org.javcream.training.java8plus.people;
 
+import java.util.Optional;
+
 public class Person implements AddressProvider, Addressable{
 
 	private String lastname;
 	private String firstname;
-	private Address address;
+	private Optional<Address> address;
 	
 	public Address getAddress() {
-		return address;
+//		if (address.isPresent()) {
+//			return address.get();
+//		}else{
+//			return Address.NullAddress
+//		}
+		
+		return address.map(a -> a).orElse(Address.NullAddress);
 	}
-	public void setAddress(Address address) {
+	public void setAddress(Optional<Address> address) {
 		this.address = address;
 	}
 	public Person(String lastname, String firstname, Address address) {
 		super();
 		this.lastname = lastname;
 		this.firstname = firstname;
-		this.address = address;
+		this.address = Optional.of(address);
+	
 	}
 	@Override
 	public int hashCode() {
